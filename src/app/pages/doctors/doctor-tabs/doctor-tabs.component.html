@@ -1,0 +1,8 @@
+<div class="tabs">
+  <div class="tabs-list">
+    <button [class.active]="tab === 'all'" (click)="tab = 'all'">All</button>
+    <button [class.active]="tab === 'Oncology'" (click)="tab = 'Oncology'">Oncology</button>
+    <button [class.active]="tab === 'Psychology'" (click)="tab = 'Psychology'">Psychology</button>
+  </div>
+  <app-doctor-grid [doctors]="specialtyDoctors"></app-doctor-grid>
+</div>

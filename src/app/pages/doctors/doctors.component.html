@@ -1,0 +1,21 @@
+<section class="doctors-section">
+  <!-- Nouveau bloc header style "specialized" -->
+  <!-- <div class="section-header">
+    <div class="section-header-content">
+      <div>
+        <h2 class="section-title">Specialized Doctors</h2>
+        <p class="section-subtitle">Cancer and Psychology Experts</p>
+      </div>
+      <div class="section-badge">
+        <span class="badge-icon">&#9829;</span>
+        <span class="badge-text">October Rose Edition</span>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="doctors-container">
+    <h1>Doctors Directory</h1>
+    <app-search-bar [searchTerm]="searchTerm" (searchTermChange)="searchTerm = $event"></app-search-bar>
+    <app-doctor-tabs [doctors]="doctors" [searchTerm]="searchTerm"></app-doctor-tabs>
+  </div>
+</section>

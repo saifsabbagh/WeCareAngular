@@ -1,0 +1,83 @@
+<section class="diagnostic-section">
+  <div class="diagnostic-header">
+    <h2>Preliminary Diagnosis Form</h2>
+    <span class="subtitle">Please provide your information and symptoms for an initial assessment</span>
+  </div>
+
+  <div class="diagnostic-container">
+    <form class="big-form-card" (ngSubmit)="submit()" autocomplete="off">
+      <div class="form-content">
+        <!-- Questionnaire -->
+        @for (q of questions; track q.title; let qIndex = $index) {
+          <div class="diagnostic-question">
+            <div class="question-title">
+              {{ qIndex+1 }}. {{ q.title }}
+            </div>
+            <div class="options">
+              @for (opt of q.options; track opt.label) {
+                <label class="option-radio">
+                  <input
+                    type="radio"
+                    name="question-{{qIndex}}"
+                    [checked]="patient.answers[qIndex] === opt.value"
+                    (change)="setAnswer(qIndex, opt.value)"
+                  />
+                  <span>{{ opt.label }}</span>
+                </label>
+              }
+            </div>
+          </div>
+        }
+
+        <!-- User info fields -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" [(ngModel)]="patient.firstName" name="firstName" placeholder="Enter your first name" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" [(ngModel)]="patient.lastName" name="lastName" placeholder="Enter your last name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="patient.email" name="email" placeholder="Enter your email address" required />
+        </div>
+        <div class="form-group">
+          <label>Symptoms</label>
+          <textarea rows="3" [(ngModel)]="patient.symptoms" name="symptoms" placeholder="Please describe your symptoms in detail"></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" type="submit">Check Result</button>
+    </form>
+
+    @if (submitted) {
+      <div class="result-block">
+        <h3>Test Result</h3>
+        <div class="score">
+          <span>{{ score }}</span>
+          <span class="score-label">
+            @if (score < 2) { Low Risk }
+            @else if (score < 4) { Moderate Risk }
+            @else { High Risk }
+          </span>
+        </div>
+        <div class="explanation">
+          @if (score < 2) {
+            <span>Low likelihood of symptoms. Maintain regular check-ups.</span>
+          } @else if (score < 4) {
+            <span>Some warning signs detected. Consider talking to a specialist soon.</span>
+          } @else {
+            <span>Multiple warning signs detected. Please consult a doctor for a full diagnosis.</span>
+          }
+        </div>
+        <div class="thanks-message">
+          <b>Thank you for your submission!</b><br>
+          Our team will contact you soon.
+        </div>
+        <button class="restart-btn" (click)="restart()">Restart</button>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h1>Support, Educate, Empower</h1>
+      <p>
+        Join the We Care and connect with specialized doctors, access valuable resources,
+        and find hope in your cancer journey.
+      </p>
+      <a routerLink="/doctors">
+        <button>Get Started</button>
+      </a>
+    </div>
+    <div class="hero-img">
+      <img src="https://we-care1.vercel.app/_next/image?url=%2Fhome%2Fhero.webp&w=1080&q=75" alt="Cancer support illustration" />
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Feedback Section -->
+<section class="feedback-section">
+  <div class="feedback-container">
+    <h2>Inspiring Stories</h2>
+    <div class="feedback-grid">
+      @for (feedback of feedbackData; track feedback.name) {
+        <div class="feedback-card">
+          <p class="feedback-message">"{{ feedback.message }}"</p>
+          <div class="feedback-user">
+            <img src="assets/heart.png" alt="Testimonial user" class="user-img" />
+            <div>
+              <h3>{{ feedback.name }}</h3>
+              <p>{{ feedback.status }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+<!-- Video Section -->
+<section class="video-section">
+  <div class="video-container">
+    <h2>Learn More About Our Mission</h2>
+    <div class="video-wrapper">
+      <video
+        #missionVideo
+        [src]="videoSrc"
+        [poster]="videoPoster"
+        class="video-element"
+      ></video>
+      <button class="play-btn"
+        (click)="handlePlayPause(missionVideo)">
+        <!-- <span *ngIf="!isPlaying">&#9654;</span> 
+        <span *ngIf="isPlaying">&#10073;&#10073;</span>  -->
+      </button>
+    </div>
+  </div>
+</section>
+

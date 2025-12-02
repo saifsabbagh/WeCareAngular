@@ -1,0 +1,32 @@
+<header class="navbar-header">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-brand">
+      <span class="navbar-heart">&#10084;</span>
+      <span class="navbar-title">We Care</span>
+    </a>
+
+    <nav class="navbar-links desktop-only">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/doctors" routerLinkActive="active">Doctors</a>
+      <a routerLink="/medical-publications" routerLinkActive="active">Medical publications</a>
+      <a routerLink="/diagnostic" routerLinkActive="active">Diagnostic</a>
+    </nav>
+
+    <button class="menu-btn mobile-only" (click)="toggleMobileMenu()">
+      @if (!isMobileMenuOpen) {
+        <span>&#9776;</span>
+      } @else {
+        <span>&times;</span>
+      }
+    </button>
+  </div>
+
+  @if (isMobileMenuOpen) {
+    <nav class="navbar-links mobile-menu mobile-only">
+      <a routerLink="/" routerLinkActive="active" (click)="toggleMobileMenu()">Home</a>
+      <a routerLink="/doctors" routerLinkActive="active" (click)="toggleMobileMenu()">Doctors</a>
+      <a routerLink="/medical-publications" routerLinkActive="active" (click)="toggleMobileMenu()">Medical publications</a>
+      <a routerLink="/diagnostic" routerLinkActive="active" (click)="toggleMobileMenu()">Diagnostic</a>
+    </nav>
+  }
+</header>

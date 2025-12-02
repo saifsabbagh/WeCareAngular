@@ -1,0 +1,192 @@
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(90deg, #fbb6ce 0%, #fce7f3 100%);
+  /* Make section much taller! */
+  padding: 7.5rem 0;          // <- was 3.5rem, now much longer
+//   min-height: 300px;          // Extra: always at least this tall
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.5rem;             // Optionally increase gap for more "air"
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 7rem;            // More gap between text/img (optional)
+      align-items: flex-start;
+    }
+
+    .hero-text {
+      flex: 1;
+      h1 {
+        color: #c2185b;
+        font-size: 2.6rem;  // Can increase for bigger title if you wish
+        font-weight: 700;
+        margin-bottom: 1.7rem;
+      }
+      p {
+        color: #ad1457;
+        font-size: 1.19rem;
+        margin-bottom: 2.7rem;
+        line-height: 1.6;
+      }
+      button {
+        background: #e91e63;
+        color: #fff;
+        padding: 1.1rem 2.9rem;  // Larger button
+        font-size: 1.38rem;
+        border: none;
+        border-radius: 999px;
+        font-weight: 600;
+        box-shadow: 0 3px 12px rgba(233, 30, 99, 0.12);
+        transition: background 0.16s;
+        cursor: pointer;
+        &:hover { background: #ad1457; }
+      }
+    }
+    .hero-img {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-width: 550px;     // Slightly larger illustration
+        border-radius: 18px;
+        box-shadow: 0 12px 38px rgba(193, 24, 91, 0.13);
+      }
+    }
+  }
+}
+
+
+/* Video Section */
+.video-section {
+  background: #fce4ec;
+  padding: 3.5rem 0;
+  .video-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    h2 {
+      color: #c2185b;
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 2.1rem;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 16/9;
+      margin: 0 auto;
+      border-radius: 17px;
+      box-shadow: 0 7px 24px rgba(233, 30, 99, 0.15);
+      background: #f8bbd0;
+      overflow: hidden;
+
+      .video-element {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        background: #f8bbd0;
+      }
+      .play-btn {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #e91e63;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.4rem;
+        border: none;
+        box-shadow: 0 2px 7px rgba(233, 30, 99, 0.21);
+        cursor: pointer;
+        transition: background 0.14s;
+        &:hover { background: #ad1457; }
+      }
+    }
+  }
+}
+
+/* Feedback Section */
+.feedback-section {
+  background: #fff;
+  padding: 3.5rem 0;
+  .feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    h2 {
+      text-align: center;
+      color: #c2185b;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2.2rem;
+    }
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      @media (min-width: 750px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .feedback-card {
+        background: #fce4ec;
+        border-radius: 17px;
+        box-shadow: 0 2px 13px rgba(193, 24, 91, 0.09);
+        padding: 2.1rem 1.1rem;
+        .feedback-message {
+          color: #ad1457;
+          margin-bottom: 1.4rem;
+          font-style: italic;
+          font-size: 1.1rem;
+        }
+        .feedback-user {
+          display: flex;
+          align-items: center;
+          .user-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(233, 30, 99, 0.09);
+            margin-right: 1rem;
+            object-fit: cover;
+          }
+          h3 {
+            font-size: 1.11rem;
+            color: #e91e63;
+            margin: 0;
+            font-weight: 600;
+          }
+          p {
+            font-size: 0.93rem;
+            color: #ad1457;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive: mobile reduce paddings & gaps */
+@media (max-width: 700px) {
+  .hero-section, .video-section, .feedback-section {
+    padding: 2rem 0;
+  }
+  .feedback-container .feedback-grid {
+    gap: 0.9rem;
+  }
+}

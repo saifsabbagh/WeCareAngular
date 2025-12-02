@@ -1,0 +1,162 @@
+.medpubs-section {
+  background: #fff6fa;
+  min-height: 100vh;
+
+  .section-header {
+    background: linear-gradient(90deg,#f5d5e3 0,#fbd1e5 100%);
+    border-radius: 0 0 2.1rem 2.1rem;
+    box-shadow: 0 3px 16px rgba(233, 30, 99, 0.08);
+    padding: 2.1rem 1rem 2.2rem 1rem;
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1350px;
+      margin: 0 auto 1.2rem auto;
+      gap: 2rem;
+
+      h2 {
+        font-size: 2.17rem;
+        font-weight: bold;
+        color: #ab1849;
+        margin-bottom: 0.11em;
+      }
+      .subtitle {
+        color: #d34d79;
+        font-size: 1.10rem;
+        font-weight: 500;
+      }
+      .october-badge {
+        background: #fff3f8;
+        color: #b32d6d;
+        padding: 0.64rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1.02rem;
+        box-shadow: 0 1px 9px rgba(233, 30, 99, 0.09);
+        display: flex; align-items: center; gap: 0.6rem;
+        .icon { font-size: 1.15rem; margin-right: 0.25rem;}
+      }
+    }
+
+    .header-search {
+      max-width: 470px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0 2px 12px rgba(238, 108, 143, 0.07);
+      border: 1.5px solid #f8bbd0;
+      .searchbar-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 0.89rem 1.15rem;
+        font-size: 1.09rem;
+        color: #c2185b;
+        border-radius: 13px 0 0 13px;
+        &::placeholder { color: #ea7ab4; opacity: 1; }
+      }
+      .search-btn {
+        background: none;
+        border: none;
+        padding: 0 1rem;
+        font-size: 1.22rem;
+        color: #ea7ab4;
+        cursor: pointer;
+        border-radius: 0 13px 13px 0;
+        display: flex; align-items: center;
+      }
+    }
+  }
+
+  .publications-container {
+    max-width: 1250px;
+    margin: 2.2rem auto;
+    .pub-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      @media (min-width: 760px) { grid-template-columns: 1fr 1fr; }
+      @media (min-width: 1200px) { grid-template-columns: 1fr 1fr 1fr;}
+    }
+
+    .pub-card {
+      background: #fff;
+      border-radius: 17px;
+      box-shadow: 0 2px 10px rgba(233,30,99,0.07);
+      padding: 2rem 1.05rem 1.5rem 1.05rem;
+      display: flex; flex-direction: column;
+      gap: 0.77rem;
+      border: 1.5px solid #fde1ed;
+
+      .pub-card-titles {
+        display: flex; justify-content: space-between; align-items: center;
+        h3 {
+          font-size: 1.14rem; font-weight: 700; color: #c2185b; margin: 0;
+        }
+        .pub-date {
+          font-size: 0.99rem; color: #ad1457; background: #fff4fa; padding: 0.34rem 0.76rem; border-radius: 8px;
+        }
+      }
+      .pub-authors {
+        color: #ad1457; font-size: 0.96rem; margin-top: 0.07rem;
+        span:not(:last-child){ margin-right:0.7em;}
+      }
+      .pub-tags {
+        display: flex; gap: 0.7em; flex-wrap: wrap;
+        .pub-tag {
+          background: #f3c2d8; color: #c2185b;
+          padding: 0.34em 1.07em;
+          border-radius: 16px;
+          font-size: 0.90rem;
+          font-weight: 600;
+        }
+      }
+      .pub-abstract {
+        color: #91204a; font-size: 1.05rem;
+        margin-bottom: 0.43em;
+        font-style: italic;
+      }
+      .read-btn {
+        align-self: flex-start;
+        margin-top: 0.7em;
+        background: #f8bbd0;
+        color: #c2185b;
+        border: none;
+        border-radius: 10px;
+        padding: 0.53em 1.22em;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition: background 0.18s, color 0.16s;
+        box-shadow: 0 1px 8px rgba(233,30,99,0.07);
+        &:hover {
+          background: #ec407a;
+          color: #fff;
+        }
+      }
+    }
+    .no-result {
+      text-align: center;
+      color: #d34d79;
+      font-size: 1.05rem;
+      margin-top: 3.5rem;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .section-header {
+      padding: 1.1rem 0.5rem 1.29rem 0.5rem;
+      .header-row {flex-direction: column; h2 {font-size:1.1rem;} .subtitle{font-size:0.95rem;} .october-badge{font-size:0.89rem;}}
+      .header-search{max-width:98vw;.searchbar-input{font-size:1.01rem;}}
+    }
+    .publications-container{.pub-grid{gap:1.1rem;}.pub-card{padding:1.6rem 0.6rem 1.08rem 0.6rem;}}
+  }
+}

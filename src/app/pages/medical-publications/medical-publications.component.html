@@ -1,0 +1,57 @@
+<section class="medpubs-section">
+  <div class="section-header">
+    <div class="header-row">
+      <div>
+        <h2>Medical Publications</h2>
+        <span class="subtitle">Latest Research & Evidence-Based Articles</span>
+      </div>
+      <div class="october-badge">
+        <span class="icon">&#128214;</span>
+        <span>Science & Hope</span>
+      </div>
+    </div>
+    <div class="header-search">
+      <input
+        type="search"
+        class="searchbar-input"
+        placeholder="Search publications, authors, tags..."
+        [(ngModel)]="searchTerm"
+      />
+      <button class="search-btn" tabindex="-1">
+        <span class="search-icon">&#128269;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="publications-container">
+    @if (filteredPublications.length > 0) {
+      <div class="pub-grid">
+        @for (pub of filteredPublications; track pub.title) {
+          <div class="pub-card">
+            <div class="pub-card-titles">
+              <h3>{{ pub.title }}</h3>
+              <span class="pub-date">{{ pub.date }}</span>
+            </div>
+            <div class="pub-authors">
+              <span><b>Authors:</b> {{ pub.authors }}</span>
+              <span>• <b>Journal:</b> {{ pub.journal }}</span>
+            </div>
+            <div class="pub-tags">
+              @for (tag of pub.tags; track tag) {
+                <span class="pub-tag">{{ tag }}</span>
+              }
+            </div>
+            <div class="pub-abstract">
+              {{ pub.abstract }}
+            </div>
+            <a [href]="pub.link" target="_blank" class="read-btn">
+              Read Full Article
+            </a>
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="no-result">No publications found.</p>
+    }
+  </div>
+</section>

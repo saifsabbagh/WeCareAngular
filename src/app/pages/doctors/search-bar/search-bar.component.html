@@ -1,0 +1,9 @@
+<div class="searchbar">
+ <input
+  type="search"
+  [(ngModel)]="searchTerm"
+  (ngModelChange)="searchTermChange.emit($event)"
+  class="searchbar-input"
+/>
+
+</div>
